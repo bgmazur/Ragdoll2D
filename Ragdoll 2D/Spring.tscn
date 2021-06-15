@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Spring.gd" type="Script" id=1]
+
+[sub_resource type="StreamTexture" id=1]
+flags = 4
+load_path = "res://.import/sprint128.png-8aa10cfcc7ebb651f10fadd1c7aed9b4.stex"
+
+[node name="spring" type="Node2D"]
+rotation = 3.14159
+scale = Vector2( 1, 1e-05 )
+script = ExtResource( 1 )
+
+[node name="spring" type="Sprite" parent="."]
+texture = SubResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}

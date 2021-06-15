@@ -1,0 +1,86 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://images/background.png" type="Texture" id=1]
+[ext_resource path="res://oscillator.gd" type="Script" id=3]
+
+[node name="main" type="Node"]
+__meta__ = {
+"_edit_horizontal_guides_": [  ]
+}
+
+[node name="background_layer" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = -2.0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="background" type="Sprite" parent="background_layer"]
+scale = Vector2( 3, 3 )
+z_index = -100
+texture = ExtResource( 1 )
+centered = false
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="springs" type="Node" parent="."]
+
+[node name="Oscillator" type="Node2D" parent="."]
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="GUI" type="CanvasLayer" parent="."]
+
+[node name="Debug" type="Label" parent="GUI"]
+margin_left = 73.0049
+margin_top = 14.1048
+margin_right = 114.005
+margin_bottom = 45.1048
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Debug
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Gravity" type="VScrollBar" parent="GUI"]
+margin_left = 12.0
+margin_top = 12.0
+margin_right = 27.0
+margin_bottom = 112.0
+max_value = 5000.0
+value = 980.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Medium" type="VScrollBar" parent="GUI"]
+margin_left = 32.0
+margin_top = 12.0
+margin_right = 47.0
+margin_bottom = 112.0
+max_value = 1.0
+value = 0.96
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Stiffness" type="VScrollBar" parent="GUI"]
+visible = false
+margin_left = 52.0
+margin_top = 12.0
+margin_right = 67.0
+margin_bottom = 112.0
+max_value = 1000.0
+value = 100.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="value_changed" from="GUI/Gravity" to="Oscillator" method="_on_Gravity_value_changed"]
+[connection signal="value_changed" from="GUI/Medium" to="Oscillator" method="_on_Medium_value_changed"]
+[connection signal="value_changed" from="GUI/Stiffness" to="Oscillator" method="_on_Stiffness_value_changed"]

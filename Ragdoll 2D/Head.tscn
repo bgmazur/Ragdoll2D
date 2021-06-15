@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://images/head.png" type="Texture" id=1]
+[ext_resource path="res://oscillator.gd" type="Script" id=2]
+
+[node name="spring" type="Node2D"]
+rotation = 3.14159
+scale = Vector2( 1, 1e-05 )
+script = ExtResource( 2 )
+
+[node name="spring" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
